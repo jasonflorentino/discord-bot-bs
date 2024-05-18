@@ -1,1 +1,1 @@
-export { getCommands } from './getCommands.js'
+export { getCommands } from "./getCommands.js";
