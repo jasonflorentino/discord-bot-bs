@@ -1,4 +1,4 @@
-import { Client, Events, GatewayIntentBits } from "discord.js";
+import { Client, Collection, Events, GatewayIntentBits } from "discord.js";
 import Debug from "debug";
 
 import { assert } from "./utils/index.js";
@@ -13,7 +13,7 @@ debug("Creating client...");
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 debug("Attaching commands...");
-client.commands = await getCommands();
+client.commands = await getCommands(new Collection());
 client.on(Events.InteractionCreate, Handlers.handleInteractionCreate);
 
 client.once(Events.ClientReady, (readyClient) => {
