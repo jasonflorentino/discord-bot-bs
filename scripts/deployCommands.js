@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { REST, Routes } from "discord.js";
 import Debug from "debug";
 
@@ -6,6 +7,7 @@ import { getCommands } from "../commands/index.js";
 const debug = Debug("deployCommands");
 
 async function deployCommands() {
+  debug("Start");
   const commands = await getCommands(new Array());
   const rest = new REST().setToken(process.env.DISCORD_TOKEN);
   try {

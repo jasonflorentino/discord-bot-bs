@@ -1,1 +1,1 @@
-export { default as handleInteractionCreate } from "./handleInteractionCreate";
+export { default as handleInteractionCreate } from "./handleInteractionCreate.js";

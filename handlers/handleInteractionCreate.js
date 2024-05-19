@@ -1,8 +1,9 @@
 import Debug from "debug";
 
-const debug = Debug("handleInteractionCreate");
+const debug = Debug("handlers:handleInteractionCreate");
 
 export async function handleInteractionCreate(interaction) {
+  debug(`interaction:`, interaction);
   if (!interaction.isChatInputCommand()) {
     return;
   }
