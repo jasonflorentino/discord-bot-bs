@@ -6,7 +6,7 @@ export async function handleInteractionCreate(interaction) {
   if (!interaction.isChatInputCommand()) {
     return;
   }
-  const command = interaction.client.commands.get(interaction.commandNamd);
+  const command = interaction.client.commands.get(interaction.commandName);
   if (!command) {
     debug(`No command with name ${interaction.commandName}.`);
     return;
