@@ -6,7 +6,7 @@ import { Err } from "../../utils/index.js";
 const debug = Debug("commands:roleAdd");
 
 // Note users can only self-service roles
-// what are _below_ this bot's role!
+// that are _below_ this bot's role!
 // Request will otherwise return a permission error.
 
 export const data = new SlashCommandBuilder()
