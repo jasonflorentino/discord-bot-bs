@@ -43,7 +43,6 @@ async function deployCommands() {
 
   try {
     debug(`Started refreshing ${commands.length} application (/) commands.`);
-    // The PUT method is used to fully refresh all commands in the guild with the current set
     const data = await rest.put(route, { body: commands });
     debug(`Successfully reloaded ${data.length} application (/) commands.`);
   } catch (error) {
