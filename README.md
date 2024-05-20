@@ -12,7 +12,7 @@ Modules create their own named logger using the [`debug` library](https://github
 
 So far the only tests are more unit-based. Keep them near what they're testing by using the same filename but with a `*.test.js` file extension. 
 
-## Installation
+## Repo setup 
 - You'll need to have `node` installed.
 - Download this repository
 - Create and fill out `.env`:
@@ -37,6 +37,32 @@ npm install
 - No formatting -- just rely on Prettier
 - Bot commands get "registered" with Discord. This process is what allows, for example, suggestions to appear for what commands are available. You only need to re-register a command when something about its configuration changes: Name, description, parameters. Changing the code for how the command executes (ie. The code this application runs in response to the command) does not warrant a registration "update". 
 
+## Bot Installation
+
+### Introduction
+The way I like to think about it (I haven't used Discord or Discord bots much) is that there is a _user_ in Discord's system _sort of_ like any other user: They have a profile picture; they can be added to servers; if you start typing to them they'll "see" an indication that someone is typing. This Discord user is like the front-end of this system. Messages you send, events like "typing" are processed through Discord for this user, but they need to be sent somewhere -- there isn't another Discord client app getting the messages and a person looking at them to respond.
+
+That's where this code comes in. Think of it like the backend of this system. Running the code starts up a client app that can receive and react to the messages and events coming from the Discord frontend. Just like you, it needs to log in first. But once it's online messages from different servers can come in and it can start sending back replies.
+
+So just like creating your account on Discord, we first need to create an account for this bot user. We'll then be able to use a series of secret keys to "log in" and let Discord know where to start sending all the messages for this user. The last part then is to invite our user to a server!
+
+### Creating the bot user
+- Go to the Discord Developer Portal: https://discord.com/developers/applications
+- Click "New Application" at the top right.
+- Give your application (user) a name. You can change this later.
+- Submit by clicking "Create"
+- You'll now be able to add things like a Profile Picture and stuff.
+
+### Getting env vars
+- Under OAuth2 from the left menu, you'll find `Client ID`
+- Under Bot from the left menu, you'll find `Token`
+- For Guild ID, 
+  - you'll first need to enable Develop Mode in Discord: https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID
+  - Then you can right-click on your server and see the option `Copy Server ID`
+  - This ID is what we'll use to add/refresh commands for a specific guild (great for testing)
+  - as well as generate invite links to invite the bot to a specific guild
+
 ## Reference
 - [`discord-js` Guide](https://discordjs.guide/#before-you-begin)
 - [`discord-js` API Reference](https://discord.js.org/docs/packages/discord.js/stable#/docs/discord.js/main/general/welcome)
+- [Discord API docs](https://discord.com/developers/docs/intro)
