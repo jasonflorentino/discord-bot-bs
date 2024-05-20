@@ -6,6 +6,10 @@ import { getCommands } from "../commands/index.js";
 
 const debug = Debug("deployCommands");
 
+/**
+ * Reloads all commands on the guild.
+ * Run from the `package.json` script
+ */
 async function deployCommands() {
   debug("Start");
   const commands = await getCommands(new Array());

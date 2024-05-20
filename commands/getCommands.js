@@ -8,12 +8,16 @@ import { assert } from "../utils/index.js";
 const __dirname = import.meta.dirname;
 const debug = Debug("commands:getCommands");
 
+// Exported for tests
 export const errors = {
   NO_INPUT: `Expected collection`,
   BAD_INPUT: `Unknown collection type`,
 };
 
 /**
+ * Reads in and parses the commands in this folder.
+ *
+ * @param {[] | Collection} collection Will marshall commands in here
  * @returns the input collection with all the commands
  * in the /commands directory
  */

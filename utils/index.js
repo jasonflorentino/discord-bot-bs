@@ -1,3 +1,5 @@
+export * as Err from "./err.js";
+
 /**
  * Throws `msg` if `condition` is false
  */
