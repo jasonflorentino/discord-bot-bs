@@ -3,7 +3,7 @@ import path from "node:path";
 import Debug from "debug";
 import { Collection } from "discord.js";
 
-import { assert } from "../utils/index.js";
+import { assert } from "../lib/index.js";
 
 const __dirname = import.meta.dirname;
 const debug = Debug("commands:getCommands");

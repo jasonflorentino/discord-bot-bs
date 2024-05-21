@@ -3,7 +3,7 @@ import { REST, Routes } from "discord.js";
 import Debug from "debug";
 
 import { getCommands } from "../commands/index.js";
-import { assert } from "../utils/index.js";
+import { assert } from "../lib/index.js";
 
 const debug = Debug("deployCommands");
 

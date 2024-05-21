@@ -4,7 +4,7 @@ Discord bot for our server
 
 ## Architecture
 
-Entry point is `main.js`. This script sets up and runs the bot client. [`discord-js`](https://discordjs.guide/) is used to easily interface with the Discord API. Commands the bot accepts are defined in `/commands`. Each command should be a directory of the command name that has a `.js` file with the same name. The handlers for events we listen to are defined in `/handers` with each handler in its own file of the same name. These directories use `index.js` files to aggregate their contents.
+Entry point is `main.js`. This script sets up and runs the bot client. [`discord.js`](https://discordjs.guide/) is used to easily interface with the Discord API. Commands the bot accepts are defined in `/commands`. Each command should be a directory of the command name that has a `.js` file with the same name. The handlers for events we listen to are defined in `/handers` with each handler in its own file of the same name. These directories use `index.js` files to aggregate their contents.
 
 Environment variables are loaded using the [`dotenv` library](https://github.com/motdotla/dotenv). This is done at the top of the entry file. Keep in mind that if you write scripts separate from the main application, you'll need to import `dotenv` in order to access the env vars.
 
@@ -63,6 +63,6 @@ So just like creating your account on Discord, we first need to create an accoun
   - as well as generate invite links to invite the bot to a specific guild
 
 ## Reference
-- [`discord-js` Guide](https://discordjs.guide/#before-you-begin)
-- [`discord-js` API Reference](https://discord.js.org/docs/packages/discord.js/stable#/docs/discord.js/main/general/welcome)
+- [`discord.js` Guide](https://discordjs.guide/#before-you-begin)
+- [`discord.js` API Reference](https://discord.js.org/docs/packages/discord.js/stable#/docs/discord.js/main/general/welcome)
 - [Discord API docs](https://discord.com/developers/docs/intro)

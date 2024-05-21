@@ -1,7 +1,7 @@
 import Debug from "debug";
 import { SlashCommandBuilder } from "discord.js";
 
-import { Err } from "../../utils/index.js";
+import { Err } from "../../lib/index.js";
 
 const debug = Debug("commands:roleAdd");
 
