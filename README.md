@@ -62,6 +62,40 @@ So just like creating your account on Discord, we first need to create an accoun
   - This ID is what we'll use to add/refresh commands for a specific guild (great for testing)
   - as well as generate invite links to invite the bot to a specific guild
 
+## Deployment
+We'll use the [pm2](https://pm2.keymetrics.io/docs/usage/quick-start/) process manager to run the app in production.
+#### Install pm2
+```
+npm install pm2@latest -g
+```
+
+#### Start the app
+```
+pm2 start pm2.config.cjs
+```
+
+#### Tail log files
+```
+# All logs
+pm2 logs
+
+# Just the bot's stdout and stderr
+pm2 logs bot --raw
+```
+
+#### Restart the app
+```
+pm2 restart bot
+
+# Restart and update env vars
+pm2 restart --update-env
+```
+
+#### Kill the app
+```
+pm2 delete all
+```
+
 ## Reference
 - [`discord.js` Guide](https://discordjs.guide/#before-you-begin)
 - [`discord.js` API Reference](https://discord.js.org/docs/packages/discord.js/stable#/docs/discord.js/main/general/welcome)
