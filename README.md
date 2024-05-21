@@ -74,6 +74,11 @@ npm install pm2@latest -g
 pm2 start pm2.config.cjs
 ```
 
+#### Check status of running apps
+```
+pm2 status
+```
+
 #### Tail log files
 ```
 # All logs
@@ -91,7 +96,7 @@ pm2 restart bot
 pm2 restart --update-env
 ```
 
-#### Kill the app
+#### Kill all apps 
 ```
 pm2 delete all
 ```
