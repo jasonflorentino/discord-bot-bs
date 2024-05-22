@@ -22,6 +22,9 @@ So far the only tests are more unit-based. Keep them near what they're testing b
 
 ## Repo setup 
 - You'll need to have `node` installed.
+  - Make your life easy and use [`nvm`](https://github.com/nvm-sh/nvm) to install and manage `node` versions
+  - Use at least node `v20.13.1`
+  - and npm `10.5.2`
 - Download this repository
 - Create and fill out `.env`:
 ```bash
