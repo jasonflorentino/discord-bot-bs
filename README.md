@@ -4,7 +4,7 @@ Discord bot for our server
 
 ## Architecture
 
-Entry point is `main.js`. This script sets up and runs the bot client. [`discord.js`](https://discordjs.guide/) is used to easily interface with the Discord API. Commands the bot accepts are defined in `/commands`. Each command should be a directory of the command name that has a `.js` file with the same name. The handlers for events we listen to are defined in `/handers` with each handler in its own file of the same name. These directories use `index.js` files to aggregate their contents.
+Entry point is `main.js`. This script sets up and runs the bot client. [`discord.js`](https://discordjs.guide/) is used to easily interface with the Discord API. The client listens for events from Discord, acts on them with handlers, and if the event is for a `ChatInputCommand`, execute the corresponding command code. Commands the bot accepts are defined in `/commands`. Each command should be a directory of the command name that has a `.js` file with the [same name](https://github.com/jasonflorentino/discord-bot-bs/blame/d622524fa72da0a22a34d6ba01daf8743fb59bfd/commands/getCommands.js#L86-L89). The handlers for events we listen to are defined in `/handers` with each handler in its own file of the same name. These directories use `index.js` files to aggregate their contents.
 
 Environment variables are loaded using the [`dotenv` library](https://github.com/motdotla/dotenv). This is done at the top of the entry file. Keep in mind that if you write scripts separate from the main application, you'll need to import `dotenv` in order to access the env vars.
 
@@ -63,7 +63,10 @@ So just like creating your account on Discord, we first need to create an accoun
   - as well as generate invite links to invite the bot to a specific guild
 
 ## Deployment
-We'll use the [pm2](https://pm2.keymetrics.io/docs/usage/quick-start/) process manager to run the app in production.
+We'll use the [pm2](https://pm2.keymetrics.io/docs/usage/quick-start/) process manager to run the app in production. 
+
+### Some useful commands
+
 #### Install pm2
 ```
 npm install pm2@latest -g
@@ -100,6 +103,9 @@ pm2 restart --update-env
 ```
 pm2 delete all
 ```
+
+### Deploy changes
+Deployment is manual right now: Pull down latest code from remote and restart the app using `pm2 restart bot`
 
 ## Reference
 - [`discord.js` Guide](https://discordjs.guide/#before-you-begin)

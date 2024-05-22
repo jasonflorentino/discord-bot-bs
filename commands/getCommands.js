@@ -83,7 +83,7 @@ export async function getCommands(collection) {
   return collection;
 }
 
-function isCommandFile(dir, filename) {
+function isCommandFile(dirname, filename) {
   // is .js file and file name matches the dir name
-  return filename.endsWith(".js") && path.parse(filename).name === dir;
+  return filename.endsWith(".js") && path.parse(filename).name === dirname;
 }
