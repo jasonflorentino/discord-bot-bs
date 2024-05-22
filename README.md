@@ -5,8 +5,8 @@ Discord bot for our server
 ### Contents
 - [Architecture](#architecture)
 - [Repo setup](#repo-setup)
-- [Developing](#developing)
 - [Bot Installation](#bot-installation)
+- [Developing](#developing)
 - [Deployment](#deployment)
 - [Reference](#reference)
 
@@ -35,19 +35,6 @@ cp .env-example .env
 npm install
 ```
 
-## Developing
-- Running `npm run dev` will start the app using `nodemon` which will watch for changes and restart when detected.
-  - Note that changing env vars will not restart the app. You'll need to manually restart in this case.
-  - `nodemon` config is done in `package.json` 
-- You can also run `npm run start` or `node main.js`, but would need to manually restart the app to load the latest changes.
-- When the app starts up it "logs in" as the bot user to Discord. This process is what creates the connection between someone writing a command to the bot in Discord and that command being sent to wherever this application is running.
-
-### Notes
-- This is a pretty barebones node project using ESM.
-- You'll need to specify file extension on imports.
-- No formatting -- just rely on Prettier
-- Bot commands get "registered" with Discord. This process is what allows, for example, suggestions to appear for what commands are available. You only need to re-register a command when something about its configuration changes: Name, description, parameters. Changing the code for how the command executes (ie. The code this application runs in response to the command) does not warrant a registration "update". 
-
 ## Bot Installation
 
 ### Introduction
@@ -72,6 +59,31 @@ So just like creating your account on Discord, we first need to create an accoun
   - Then you can right-click on your server and see the option `Copy Server ID`
   - This ID is what we'll use to add/refresh commands for a specific guild (great for testing)
   - as well as generate invite links to invite the bot to a specific guild
+
+### Starting up for the first time
+Now that the bot has a user on Discord and some code to back it up, you need to invite it to your guild. With your guild ID in the env vars, get an invite link by running: 
+```
+npm run invite
+```
+And since this is a fresh bot user, you'll need to register the commands it knows with Discord. Run:
+```
+npm run deployCommands
+```
+
+## Developing
+- Running `npm run dev` will start the app using `nodemon` which will watch for changes and restart when detected.
+  - Note that changing env vars will not restart the app. You'll need to manually restart in this case.
+  - `nodemon` config is done in `package.json` 
+- You can also run `npm run start` or `node main.js`, but would need to manually restart the app to load the latest changes.
+- When the app starts up it "logs in" as the bot user to Discord. This process is what creates the connection between someone writing a command to the bot in Discord and that command being sent to wherever this application is running.
+
+### Notes
+- This is a pretty barebones node project using ESM.
+- You'll need to specify file extension on imports.
+- No formatting -- just rely on Prettier
+- Bot commands get "registered" with Discord. This process is what allows, for example, suggestions to appear for what commands are available. You only need to re-register a command when something about its configuration changes: Name, description, parameters. Changing the code for how the command executes (ie. The code this application runs in response to the command) does not warrant a registration "update". 
+
+
 
 ## Deployment
 We'll use the [pm2](https://pm2.keymetrics.io/docs/usage/quick-start/) process manager to run the app in production. 
