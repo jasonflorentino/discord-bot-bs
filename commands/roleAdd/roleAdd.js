@@ -32,5 +32,5 @@ export async function execute(interaction) {
     message = Err.getReply(err);
   }
   debug("message:", message);
-  await interaction.reply(message);
+  await interaction.reply({ content: message, ephemeral: true });
 }
