@@ -1,10 +1,18 @@
-# Discord Bot
+# 🤖 Discord Bot
 
 Discord bot for our server
 
+### Contents
+- [Architecture](#architecture)
+- [Repo setup](#repo-setup)
+- [Developing](#developing)
+- [Bot Installation](#bot-installation)
+- [Deployment](#deployment)
+- [Reference](#reference)
+
 ## Architecture
 
-Entry point is `main.js`. This script sets up and runs the bot client. [`discord.js`](https://discordjs.guide/) is used to easily interface with the Discord API. The client listens for events from Discord, acts on them with handlers, and if the event is for a `ChatInputCommand`, execute the corresponding command code. Commands the bot accepts are defined in `/commands`. Each command should be a directory of the command name that has a `.js` file with the [same name](https://github.com/jasonflorentino/discord-bot-bs/blame/d622524fa72da0a22a34d6ba01daf8743fb59bfd/commands/getCommands.js#L86-L89). The handlers for events we listen to are defined in `/handers` with each handler in its own file of the same name. These directories use `index.js` files to aggregate their contents.
+Entry point is `main.js`. This script sets up and runs the bot client. [`discord.js`](https://discordjs.guide/) is used to easily interface with the Discord API. The client listens for events from Discord, acts on them with handlers, and if the event is for a `ChatInputCommand`, execute the corresponding command code. Commands the bot accepts are defined in `/commands`. Each command should be a directory of the command name that has a `.js` file with the [same name](https://github.com/jasonflorentino/discord-bot-bs/blob/d622524fa72da0a22a34d6ba01daf8743fb59bfd/commands/getCommands.js#L86-L89). The handlers for events we listen to are defined in `/handers` with each handler in its own file of the same name. These directories use `index.js` files to aggregate their contents.
 
 Environment variables are loaded using the [`dotenv` library](https://github.com/motdotla/dotenv). This is done at the top of the entry file. Keep in mind that if you write scripts separate from the main application, you'll need to import `dotenv` in order to access the env vars.
 
